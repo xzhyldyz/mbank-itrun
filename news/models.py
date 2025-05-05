@@ -39,3 +39,15 @@ class News(models.Model):
         verbose_name_plural = 'Новости'
         verbose_name = 'новость'
         
+
+class PaymentMethod(models.Model):
+    title = models.CharField(max_length=50)
+    img = models.ImageField(upload_to='payMethod')
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name_plural = 'Способы оплаты'
+        verbose_name = 'способ оплаты'
+    

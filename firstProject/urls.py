@@ -3,12 +3,13 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from news.views import homepage
+from news.views import homepage, mkassaPage
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', homepage)
+    path('', homepage, name='homepage'),
+    path('mkassaPage/', mkassaPage, name='mkassaPage'),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

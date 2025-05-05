@@ -1,38 +1,75 @@
 <!doctype html>
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>MKassa</title>
-    <link href="bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="mkassa.css">
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'mkassa.css' %}">
+    <style>
+      @media (max-width: 768px) {
+    .carousel-inner .carousel-item > div {
+        display: none;
+    }
+    .carousel-inner .carousel-item > div: first-child {
+        display: block;
+    }
+}
+
+.carousel-inner .carousel-item.activate,
+.carousel-inner .carousel-item.next,
+.carousel-inner .carousel-item.prev {
+    display: flex;
+}
+
+/*display 3*/
+@media (min-width: 768px) {
+
+    .carousel-inner .carousel-item-right.activate,
+    .carousel-inner .carousel-item-next {
+      transform: translateX(33.333%);
+    }
+  
+    .carousel-inner .carousel-item-right.activate,
+    .carousel-inner .carousel-item-next {
+      transform: translateX(-33.333%);
+    }
+}
+
+.carousel-inner .carousel-item-right,
+.carousel-inner .carousel-item-left {
+  transform: translateX(0);
+}
+
+    </style>
   </head>
   <body>
     <!-- header -->
     <div class="container">
-        <header class="d-flex flex-wrap justify-content-center py-2 mb-4">
-          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-            <span class="fs-4"><img src="logo_mbank.svg" alt=""></span>
-            <span class="fs-4" style="padding-left: 50px;"><img src="mkassa.jpg" width="150px" alt=""></span>
-          </a>
+      <header class="d-flex flex-wrap justify-content-center py-2 mb-4">
+        <a href="{% url "homepage" %}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+          <span class="fs-4"><img src="{% static 'logo_mbank.svg' %}" alt=""></span>
+          <span class="fs-4" style="padding-left: 50px;"><img src="mkassa.jpg" width="150px" alt=""></span>
+        </a>
     
-          <ul class="nav nav-pills">
-            <li class="nav-item"><a href="#service" class="nav-link">Преимущества</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Связаться с поддержкой</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Частые воппросы</a></li>
-            <li class="nav-item"><a href="#" class="nav-link btn" style="background-color: #0092a1; color: white;">Войти</a></li>
-          </ul>
-        </header>
-      </div>
+        <ul class="nav nav-pills">
+          <li class="nav-item"><a href="#service" class="nav-link">Преимущества</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Связаться с поддержкой</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Частые воппросы</a></li>
+          <li class="nav-item"><a href="#" class="nav-link btn" style="background-color: #0092a1; color: white;">Войти</a></li>
+        </ul>
+      </header>
+    </div>
     <!-- header -->
 
     <!-- block banner -->
-    <div class="container banner">
+    <div class="container banner">                              
       <div class="row">
         <p class="h1P">Акция! Принимайте платежи<br>без комиссии с MKassa</p>
         <div class="col-7">
-          <img src="MKassa__1.png" width="500px" alt="">
+          <img src="{% static 'https://mbank.kg/media/mkassa3/image-container_2.webp' %}" width="500px" alt="">
         </div>
         <div class="col-5">
           <p>Бесплатно</p>
@@ -99,6 +136,6 @@
       </div>
     <!-- block video -->
 
-<script src="bootstrap.bundle.min.js"></script>
+<script src="{% static 'bootstrap.bundle.min.js' %}"></script>
   </body>
 </html>
