@@ -88,24 +88,14 @@
     <div class="container banner" id="service">
       <div class="row">
         <p style="font-size: 40px; color: #0046bd;" >Принимайте платежи как удобно:</p>
+      {% for pay in paymet %}  
         <div class="col-4">
           <div class="card">
-            <img src="https://mbank.kg/media/mkassa/%D0%9C%D0%9A%D0%B0%D1%81%D1%81%D0%B0-_2_.webp" width="300px" alt="">
-          </div>
-          <h3>1. POS-терминал</h3>
+            <img src="{{pay.img.url}}" width="300px" alt="">
+          </div> 
+          <h3>{{pay.title}}</h3>
         </div>
-        <div class="col-4">
-          <div class="card">
-            <img src="https://mbank.kg/media/mkassa/Frame_2087324765-2.webp" width="300px" alt="">
-        </div>
-        <h3>2. Мобильное приложение</h3>
-        </div>
-        <div class="col-4">
-          <div class="card">
-            <img src="https://mbank.kg/media/mkassa/Frame_2087324765-3.webp" width="300px" alt="">
-          </div>
-          <h3>3. QR код (наклейка)</h3>
-        </div>
+        {% endfor %}
         </div>
       </div>
     <!-- block service -->
